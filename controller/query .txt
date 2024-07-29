@@ -1,0 +1,10 @@
+SELECT h. * , o.parti, o.rdesc, o.unit, b.arvdate, w . *, p.pr_name, p.pr_cont,b.test_flag, p.pr_id,s.state_name, b.outh, b.type, h.ch_code, o.size,o.sunit,o.orate_month, o.oitm_gst,o.omkt_rate,o.bal_size
+FROM sent_his h, orders o, blt b, wb w, party p, state_master s
+WHERE  h.ord_id = o.ord_id
+AND h.blt_id = b.blt_id
+AND h.wb_id = w.wb_id
+AND b.pr_id = p.pr_id
+AND b.state_id = s.state_id
+AND b.pr_id = 1
+AND w.wb_gross!=''
+AND h.se_date >= '1551378600' AND h.se_date <='1553970600'
